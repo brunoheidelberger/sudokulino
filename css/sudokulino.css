@@ -1,24 +1,17 @@
 .puzzle {
-  width: 384px;
-  height: 384px;
   border: 1px solid #222;
 }
 
 .puzzle .box {
   display: inline-block;
-  width: 126px;
-  height: 126px;
   border: 1px solid #222;
 }
 
 .puzzle .box .cell {
-  width: 40px;
-  height: 40px;
   margin: 0;
   border: 1px solid #ddd;
   padding: 0;
   text-align: center;
-  font-size: 24px;
 }
 
 .puzzle .box .cell:hover {

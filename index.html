@@ -8,9 +8,13 @@
   <body>
     <h1>Sudokulino</h1>
     <div ng-controller="SudokuCtrl">
-      <div class="puzzle">
-        <div class="box" ng-repeat="box in puzzle.boxes">
-          <input class="cell" ng-repeat="cell in box" ng-model="puzzle.cells[cell].value" ng-change="puzzle.validate()" ng-class="puzzle.cells[cell].state">
+      <form>
+        Dimension: <select ng-model="dimension" ng-change="initialize()" ng-options="dimension.value as dimension.name for dimension in dimensions"></select>
+        Scale: <select ng-model="scale" ng-change="rescale()" ng-options="scale.value as scale.name for scale in scales"></select>
+      </form>
+      <div class="puzzle" ng-style="puzzleStyle">
+        <div class="box" ng-repeat="box in puzzle.boxes" ng-style="boxStyle">
+          <input class="cell" ng-repeat="cell in box" ng-model="puzzle.cells[cell].value" ng-change="puzzle.validate()" ng-class="puzzle.cells[cell].state" ng-style="cellStyle">
         </div>
       </div>
     </div>
