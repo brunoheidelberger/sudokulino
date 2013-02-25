@@ -89,15 +89,16 @@ Puzzle.prototype.validateUnit = function(unit) {
     isUnitValid = isUnitValid && (valueSet[valueId] <= 1);
   }
 
-  angular.forEach(unit, function(cellId) {
-    var cell = puzzle.cells[cellId];
-    if((cell.value != null) && (valueSet[cell.value - 1] > 1)) {
-      cell.state = Puzzle.prototype.STATES[3];
-    }
-    else if(!isUnitValid) {
+  if(!isUnitValid) {
+    angular.forEach(unit, function(cellId) {
+      var cell = puzzle.cells[cellId];
       cell.state = Puzzle.prototype.STATES[2];
-    }
-  });
+
+      if((cell.value != null) && (valueSet[cell.value - 1] > 1)) {
+        cell.state = Puzzle.prototype.STATES[3];
+      }
+    });
+  }
 }
 
 Puzzle.prototype.validate = function() {
