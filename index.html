@@ -12,6 +12,7 @@
         <div class="box" ng-repeat="box in puzzle.boxes">
           <input class="cell" ng-repeat="cell in box" ng-model="puzzle.cells[cell].value" ng-change="puzzle.validate()" ng-class="puzzle.cells[cell].state">
         </div>
+      </div>
     </div>
   </body>
 </html>
