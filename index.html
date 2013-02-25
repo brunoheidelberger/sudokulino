@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <link rel="stylesheet" href="css/sudokulino.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script src="js/sudokulino.js"></script>
+  </head>
+  <body>
+    <h1>Sudokulino</h1>
+    <div ng-controller="SudokuCtrl">
+      <div class="puzzle">
+        <div class="box" ng-repeat="box in puzzle.boxes">
+          <input class="cell" ng-repeat="cell in box" ng-model="puzzle.cells[cell].value" ng-change="puzzle.validate()" ng-class="puzzle.cells[cell].state">
+        </div>
+    </div>
+  </body>
+</html>
+
