@@ -1,13 +1,17 @@
-function SudokuCtrl($scope) {
+var sudokulino = angular.module('sudokulino', []);
+
+sudokulino.controller('SudokuCtrl', function ($scope) {
   $scope.initialize = function() {
     $scope.puzzle = new Puzzle($scope.dimension);
     $scope.rescale($scope.scale);
   };
 
   $scope.rescale = function() {
-    var boxDimension = Math.sqrt($scope.dimension);
+    var boxDimension, scale;
 
-    var scale = $scope.scale;
+    boxDimension = Math.sqrt($scope.dimension);
+
+    scale = $scope.scale;
     $scope.cellStyle = { 'width': scale + "px", 'height': scale + "px", 'font-size': scale * 0.6 + "px" };
 
     scale = (scale + 2) * boxDimension;
@@ -36,5 +40,5 @@ function SudokuCtrl($scope) {
 
     $scope.initialize();
   })();
-};
+});
 
